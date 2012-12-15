@@ -19,4 +19,13 @@ class Import < ActiveRecord::Base
     end
   end
 
+  def self.move_mp4_to_itunes(mp4_path)
+    require "open3"
+    command = "mv '#{mp4_path}' '/Users/jimknight/Music/iTunes/iTunes Media/Automatically Add to iTunes'"
+    Open3.popen3(command) do |stdin, stdout, stderr|
+        puts "stderr - #{stderr.read}"
+        puts "stdout - #{stdout.read}"
+    end
+  end
+
 end
