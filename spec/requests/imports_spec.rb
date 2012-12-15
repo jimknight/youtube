@@ -14,4 +14,11 @@ describe "Imports" do
     FactoryGirl.create(:import, :url => "http://youtube1")
     Import.get_latest_pending_urls(imports_path).should == ["http://youtube1","http://youtube2"]
   end
+  it "should let the user delete pending imports from the index page" do
+    FactoryGirl.create(:import, :url => "http://youtube")
+    visit imports_path
+    click_link "delete"
+    page.should_not have_content "http://youtube"
+  end
+
 end

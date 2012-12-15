@@ -18,4 +18,10 @@ class ImportsController < ApplicationController
     end
   end
 
+  def destroy
+    @import = Import.find(params[:id])
+    @import.destroy
+    redirect_to imports_path, :notice => "Gone!"
+  end
+
 end
