@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-# load 'deploy/assets' # this is a rails 3.0 app
+load 'deploy/assets' # this is a rails 3.0 app
 
 set   :domain,        "69.172.229.224"
 role  :web,           domain
