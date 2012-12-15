@@ -5,8 +5,12 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'factory_girl_rails'
+gem 'nokogiri'
 gem 'pg'
 gem 'pry'
+gem 'rest-client'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +28,8 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
+  gem 'capybara'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
@@ -36,7 +42,7 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
