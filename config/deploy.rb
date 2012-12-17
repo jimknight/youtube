@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-load 'deploy/assets' # this is a rails 3.0 app
 
 set   :domain,        "69.172.229.224"
 role  :web,           domain
@@ -23,8 +22,5 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-  task :assets do
-    run "cd #{current_path} && bundle exec rake assets:precompile RAILS_ENV=#{rails_env}"
   end
 end

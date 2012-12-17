@@ -182,7 +182,6 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   launchy
-  libv8
   nokogiri
   pg
   pry
