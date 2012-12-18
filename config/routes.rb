@@ -1,7 +1,7 @@
 Youtube::Application.routes.draw do
 
   resources :imports
-  match "/imports/:url/completed" => "imports#completed"
+  match "/completed" => "imports#completed"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
