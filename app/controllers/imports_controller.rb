@@ -8,6 +8,13 @@ class ImportsController < ApplicationController
     @imports = Import.where(:status => "Pending").order("url ASC")
   end
 
+  def completed
+    @import = Import.find_by_url(params[:url])
+    @import.status = "Completed"
+    @import.save
+    redirect_to imports_path
+  end
+
   def create
     @import = Import.new(params[:import])
     @import.status = "Pending"

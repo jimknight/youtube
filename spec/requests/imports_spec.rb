@@ -20,5 +20,11 @@ describe "Imports" do
     click_link "delete"
     page.should_not have_content "http://youtube"
   end
-
+  it "should mark things completed after downloading" do
+    @import = FactoryGirl.create(:import)
+    visit "/imports/#{@import.url}/completed"
+    Import.last.status.should == "Completed"
+    visit imports_path
+    page.should_not have_content @import.url
+  end
 end
