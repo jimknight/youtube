@@ -46,7 +46,7 @@ class Import < ActiveRecord::Base
 
   def self.mark_video_completed(import_url)
     require "net/http"
-    Net::HTTP::Get.new("http://youtube.lavatech.com/completed?url=#{import_url}")
+    Net::HTTP.get(URI("http://youtube.lavatech.com/completed?url=#{import_url}"))
   end
 
   def self.move_mp4_to_itunes(mp4_path)
