@@ -1,7 +1,7 @@
 class Import < ActiveRecord::Base
 
   attr_accessible :status, :url
-  @@output_directory = "/Users/jimknight/Videos/youtube"
+  @@output_directory = "/home/deployer/Dropbox/youtube"
 
   def self.get_all_downloaded_flvs
     Dir.glob("#{@@output_directory}/*.flv")
@@ -22,17 +22,17 @@ class Import < ActiveRecord::Base
 
   def self.grab_youtube_video(youtube_video_url)
     require "open3"
-    output_path = "#{@@output_directory}/%(id)s.flv"
-    Open3.popen3("youtube-dl #{youtube_video_url} -o '#{output_path}'") do |stdin, stdout, stderr|
+    output_path = "#{@@output_directory}/%(title)s.mp4"
+    Open3.popen3("youtube-dl #{youtube_video_url} -o '#{output_path}' --restrict-filenames") do |stdin, stdout, stderr|
       error_msg = stderr.read
       if error_msg.present?
         puts error_msg
         return nil
       else
         puts stdout
-        return output_path    
+        return output_path
       end
-    end    
+    end
   end
 
   def self.convert_flv_to_mp4(flv_path)
