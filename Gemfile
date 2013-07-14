@@ -11,6 +11,7 @@ gem 'pg'
 gem 'pry'
 gem 'rest-client'
 gem 'simple_form'
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,7 +40,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
