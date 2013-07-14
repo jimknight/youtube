@@ -1,7 +1,7 @@
 class Import < ActiveRecord::Base
 
   attr_accessible :status, :url
-  @@output_directory = "/Users/jimknight/Videos/youtube"
+  @@output_directory = "/Users/jimknight/rails/personal/youtube"
 
   def self.get_all_downloaded_flvs
     Dir.glob("#{@@output_directory}/*.flv")
@@ -30,9 +30,9 @@ class Import < ActiveRecord::Base
         return nil
       else
         puts stdout
-        return output_path    
+        return output_path
       end
-    end    
+    end
   end
 
   def self.convert_flv_to_mp4(flv_path)
